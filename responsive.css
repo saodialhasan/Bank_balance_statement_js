@@ -64,8 +64,7 @@ span {
 
 .input_box {
     height: 200px;
-    width: 100%;
-    background-color: red;
+    width: 100%;    
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -73,6 +72,8 @@ span {
     padding: 0 20px;
 
 }
+
+
 
 .input_box button {
     height: 40px;
