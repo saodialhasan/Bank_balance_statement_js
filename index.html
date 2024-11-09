@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money site</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<!-- Resoponsive desing -->
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="responsive.css">
+
+<!-- Style 2nd part -->
+
+
+<body>
+    <div class="container d-flex">
+        <header>
+            <h2>
+                Wallet Statement                                
+            </h2>
+        </header>
+        <main>
+            <section class="section_one mt-3">
+                <div class="deposite all rounded-3 bg-primary text-white">
+                    <h2>Deposite</h2>
+                    <h1>$ <span id="deposite_span">00</span></h1>
+                </div>
+
+                <div class="withdraw all rounded-3 bg-warning">
+                    <h2>Withdraw</h2>
+                    <h2>$ <span id="widthdraw_span">00</span></h2>
+                </div>
+                <div class="balance all rounded-3 bg-success">
+                    <h2>Balance</h2>
+                    <h2>$ <span id="balance">1500</span></h2>
+                </div>
+            </section>
+            <hr>
+
+            <section class="section_two">
+                <div class="section_two_left input_box rounded-3">
+                    <h3>Please Deposite</h3>
+                    <input type="number" placeholder="$ Ammount you want to widthdraw" name="" id="deposite_input"
+                        class="input_b">
+                    <button type="button" id="deposite_btn">Deposit</button>
+                </div>
+
+                <div class="section_two_right input_box rounded-3 bg-primary">
+                    <h3>Please Withdraw</h3>
+                    <input type="number" placeholder="$ Ammount you want to withdraw" name="" id="withdraw_input"
+                        class="input_b">
+                    <button type="button" id="withdraw_btn">Withdraw</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- container End -->
+    </div>
+
+    <script>
+        let deposite_input = document.getElementById('deposite_input')
+        let deposite_btn = document.getElementById('deposite_btn')
+        let deposite_span = document.getElementById('deposite_span')
+        let balance_span = document.getElementById('balance');
+        let widthdraw_span = document.getElementById('widthdraw_span');
+        let withdraw_input = document.getElementById('withdraw_input');
+        let withdraw_btn = document.getElementById('withdraw_btn')
+
+
+        deposite_btn.addEventListener('click', function () {
+            deposite_input_s = Number(deposite_input.value);
+            // alert(deposite_input_s)
+            let deposite_span_s = Number(deposite_span.innerText);
+            let total = deposite_input_s;
+            deposite_span.innerText = total + deposite_span_s;
+            let balance_span_s = Number(balance_span.innerText)
+            balance_span.innerText = balance_span_s + total;
+            deposite_input.value = " "
+            deposite_input_s = '  '
+            return (
+                balance_span.innerText, b
+            )
+        });
+
+        // alert(typeof(b))        
+
+        withdraw_btn.addEventListener('click', function () {
+            let b = Number(balance_span.innerText);
+            withdraw_input_w = Number(withdraw_input.value)
+            // alert(withdraw_input_s)
+            widthdraw_span_w = Number(widthdraw_span.innerText);
+            widthdraw_span.innerText = withdraw_input_w;
+            let y = this.value;
+            if (Number(withdraw_input_w) > Number(b)) {
+                alert("Not sufficient balance.")                
+            }
+            balance_span.innerText = Number(b) - Number(withdraw_input_w);
+            withdraw_input.value = " "
+        })
+
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
